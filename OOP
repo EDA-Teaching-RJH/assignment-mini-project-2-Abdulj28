@@ -1,0 +1,32 @@
+class Car:
+    def __init__(self, make, model, year):
+        # Initialize the basic details of the car
+        self.make = make       # The manufacturer of the car
+        self.model = model     # The model of the car
+        self.year = year       # The year the car was made
+
+    def display_info(self):
+        # Print out the cars information format
+        print(f"Car Information:\nMake: {self.make}\nModel: {self.model}\nYear: {self.year}")
+
+class ElectricCar(Car):
+    def __init__(self, make, model, year, battery_size):
+        # Initialize the Electric Car using the details from the Car class
+        super().__init__(make, model, year)  # uses the sam basic car details
+        self.battery_size = battery_size      # Add the battery size for the electric car
+
+    def display_info(self):
+        # Print out all the car's info from the parent class first
+        super().display_info()  
+        # Now add information about the electric car's battery size
+        print(f"Battery Size: {self.battery_size} kWh")
+
+# Let's create a regular car and display its information
+my_car = Car("Toyota", "Camry", 2022)
+print("Regular Car:")
+my_car.display_info()
+
+# Now let's create an electric car and show its details
+my_electric_car = ElectricCar("Tesla", "Model S", 2023, 100)
+print("\nElectric Car:")
+my_electric_car.display_info()
